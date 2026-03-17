@@ -134,7 +134,7 @@ static void wakeup_waiters(const Coroutine *done) {
 
 /* ── trampoline (called when a new coroutine starts) ────────────────────── */
 #if USE_ASM_CTX
-static void co_entry(Coroutine *co) {
+void co_entry(Coroutine *co) {
     co->fn(co->arg);
 
     co->state = CO_DONE;
